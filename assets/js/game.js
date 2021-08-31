@@ -1,10 +1,10 @@
 var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 100;
+var playerHealth = 40;
 var playerAttack = 10;
 var playerMoney = 10;
 
 var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
-var enemyHealth = 50;
+var enemyHealth = 20;
 var enemyAttack = 12;
 
 console.log(enemyNames);
@@ -68,6 +68,13 @@ var fight = function(enemyName) {
     }
   }
 };
+var startGame = function() {
+
+ // reset player stats
+ playerHealth = 40;
+ playerAttack = 10;
+ playerMoney = 10;
+
 
 // fight each enemy-robot by looping over them and fighting them one at a time
 for (var i = 0; i < enemyNames.length; i++) {
@@ -92,5 +99,43 @@ for (var i = 0; i < enemyNames.length; i++) {
   else {
     window.alert('You have lost your robot in battle! Game Over!');
     break;
+    }
   }
-}
+
+   // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
+   endGame();
+ 
+};
+
+var endGame = function() {
+  window.alert("The game has now ended. Let's see how you did!");
+
+  if (playerHealth > 0) {
+    window.alert("Good job on surviving!")
+  } else {
+    window.alert("You have lost!")
+  }
+
+  var playAgainConfirm = window.confirm("Would you like to play again?");{
+
+  if (playAgainConfirm) {
+    //restart game
+    startGame();
+  } else {
+    window.alert("Thanks for playing!");
+  } 
+
+  }
+};
+
+//start the game when page loads 
+startGame();
+
+
+//add shop to name, refill health var and upgrade attack var, if leave then leave shop
+
+//game ends, ask if want to play again if so loop to start, else window prompt score... call an endgram function that shoes score and play again
+
+// startgame funtion
+//endGame function
+//shop function for shop stuff
